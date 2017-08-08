@@ -1,0 +1,57 @@
+.container {
+  margin-top: 15px;
+}
+.img-thumbnail img {
+  width: 100%;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.img-thumbnail {
+  padding: 0;
+  margin-bottom: 12px;
+}
+.caption-full {
+  padding: 9px;
+}
+.card {
+  margin-bottom: 20px;
+}
+.delete-form {
+  display: inline;
+}
+.delete-form button {
+  cursor: pointer;
+}
+.btn-primary {
+  cursor: pointer;
+}
+.back {
+  margin: 0 auto;
+  display: inline-block;
+}
+.navbar.navbar-toggleable-md.navbar-light.bg-faded .container {
+  margin-top: 0;
+}
+#map {
+    height: 400px;
+    width: 100%;
+}
+.navbar {
+  border-bottom: 1px solid #e7e7e7;
+}
+.navbar-toggler {
+  border: none;
+  cursor: pointer;
+}
+.navbar {
+  font-size: .9rem;
+}
+.navbar-brand {
+  font-size: 1rem;
+  color: #666 !important;
+}
+@media screen and (max-width: 575px){
+  .container {
+    margin: 0;
+  }
+}
