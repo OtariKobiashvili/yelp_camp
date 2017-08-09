@@ -50,7 +50,19 @@
   font-size: 1rem;
   color: #666 !important;
 }
+.form-size {
+  width: 37.5%;
+  margin: 30px auto;
+}
+@media screen and (max-width: 767px){
+  .form-size {
+    width: 47.5%
+  }
+}
 @media screen and (max-width: 575px){
+  .form-size {
+    width: 59.5%;
+  }
   .container {
     margin: 0;
   }
