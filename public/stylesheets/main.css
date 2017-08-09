@@ -52,6 +52,7 @@ header.jumbotron .container h1 {
   padding: 9px;
 }
 .card {
+  overflow: hidden;
   margin-bottom: 20px;
 }
 .delete-form {
