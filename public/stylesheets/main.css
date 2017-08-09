@@ -1,11 +1,12 @@
 body {
   background: #f9f9f9;
+  font-family: 'Open Sans', sans-serif;
 }
 header.jumbotron {
-  background: -webkit-linear-gradient(to right, #d1d2d3 50%, #f9f9f9 100%);
-  background: -moz-linear-gradient(to right, #d1d2d3 50%, #f9f9f9 100%);
-  background: -o-linear-gradient(to right, #d1d2d3 30%, #f9f9f9 100%);
-  background: linear-gradient(to right, #eceeef 0%, #f9f9f9 100%);
+  background: -webkit-linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
+  background: -moz-linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
+  background: -o-linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
+  background: linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -62,11 +63,11 @@ header.jumbotron .container h1 {
 .btn-primary {
   cursor: pointer;
   background-color: #d32323;
-  border-color: #d32323
+  border-color: #8d0005;
 }
 .btn-primary:hover {
   background-color: #ed0008;
-  border-color: #ed0008;
+  border-color: #8d0005;
   transition: ease-in-out, .1s;
 }
 .back {
