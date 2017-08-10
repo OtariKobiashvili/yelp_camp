@@ -72,8 +72,7 @@ header.jumbotron .container h1 {
   transition: ease-in-out, .1s;
 }
 .back {
-  margin: 0 auto;
-  display: inline-block;
+ font-size: 11.5px;
 }
 .navbar.navbar-toggleable-md.navbar-light.bg-faded .container {
   margin-top: 0;
@@ -108,6 +107,26 @@ header.jumbotron .container h1 {
 .form-size {
   width: 37.5%;
   margin: 30px auto;
+}
+.form-size h4{
+  margin-bottom: 15px;
+}
+.form-control {
+  border: 1px solid #999;
+}
+.auth {
+  margin-top: 110px;
+}
+.auth form .form-group {
+  margin-bottom: 8px;
+}
+.auth form .form-group .form-control{
+  height: 34px;
+}
+.auth p {
+  font-size: 12.5px;
+  margin: 0;
+  color: #999;
 }
 @media screen and (max-width: 767px){
   .form-size {
