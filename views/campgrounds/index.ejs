@@ -30,6 +30,14 @@
                         <p>
                             <a href = "/campgrounds/<%= camp._id%>" class = "btn btn-sm btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> More Info</a>
                         </p>
+                        <% if(currentUser && currentUser.isAdmin){ %>
+                        <p>
+                            <a class="btn btn-sm btn-warning" href="/campgrounds/<%= camp._id %>/edit">Edit</a>
+                            <form class="delete-form" action="/campgrounds/<%= camp._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </p>
+                        <% } %>
                     </div>
                 </div>
             <% }); %>
