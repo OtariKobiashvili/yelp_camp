@@ -14,9 +14,11 @@ header.jumbotron {
 header.jumbotron .container h1 {
   font-size: 3.5rem;
 }
+.nav-item.active {
+  border-radius: 5px;
+}
 .active {
   background-color: rgba(51,51,51,.3);
-  border-radius: 5px;
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .open>.nav-link {
   color: white;
@@ -70,6 +72,13 @@ header.jumbotron .container h1 {
   background-color: #ed0008;
   border-color: #8d0005;
   transition: ease-in-out, .1s;
+}
+.btn-success {
+  background: #3cb52e;
+  border-color: #28781e;
+}
+.btn-success:hover {
+  background: #41c532;
 }
 .back {
  font-size: 11.5px;
@@ -127,6 +136,32 @@ header.jumbotron .container h1 {
   font-size: 12.5px;
   margin: 0;
   color: #999;
+}
+.list-group {
+  margin-bottom: 25px;
+}
+.list-group-item {
+  padding: .6rem 1.15rem;
+}
+.list-group-item-action {
+  cursor: pointer;
+}
+.list-group-item.active {
+  cursor: initial;
+  background: #d32323;
+  border-color: #d32323;
+}
+.img-thumbnail .caption-full h4:nth-child(2) {
+  color: #d32323;
+}
+.img-thumbnail .caption-full p:nth-child(3) {
+  font-size: 14px;
+}
+.col-md-12 strong {
+  font-size: 17px;
+}
+.comment {
+  font-size: 13.5px;
 }
 @media screen and (max-width: 767px){
   .form-size {
