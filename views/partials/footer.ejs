@@ -6,6 +6,16 @@
                     YelpCamp 2017 |
                     <a href="/campgrounds">Home</a>
                     |
+                    <% if(!currentUser){ %>
+                    <a href="/login">Login</a>
+                    |
+                    <a href="/register">Register</a>
+                    <% }else { %>
+                    <a href="/campgrounds/new">New Campground</a>
+                    |
+                    <a href="/logout">Log Out</a>
+                    |
+                    <% } %>
                 </p>
             </div>
         </footer>
