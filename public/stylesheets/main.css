@@ -66,14 +66,15 @@ header.jumbotron .container hr {
   max-width: 192px;
 }
 .form-inline .form-group .form-control {
-  width: 150px;
+  width: 152px;
   margin: 0 auto;
   font-size: .8rem;
 }
-.form-inline .form-group .btn-sm {
-  margin: 0 auto;
-  margin-top: 5px;
-  font-size: .75rem;
+#search-message {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
 }
 .caption-full {
   padding: 9px;
@@ -108,8 +109,11 @@ header.jumbotron .container hr {
 .back {
  font-size: 11.5px;
 }
-.navbar.navbar-toggleable-md.navbar-light.bg-faded .container {
+.navbar.navbar-expand-md.navbar-light.bg-faded .container {
   margin-top: 0;
+}
+.navbar-collapse .nav.navbar-nav {
+  text-align: center;
 }
 #map {
     height: 400px;
