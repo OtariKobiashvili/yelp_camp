@@ -6,15 +6,28 @@ var campground = require("../models/campground"),
     middleware = require("../middleware");
 
 router.get("/", function(req,res){
-    //get all campgrounds then render
-    campground.find({}, function (err, allCampgrounds) {
-        if(err){
-            req.flash("error", "Campgrounds not found");
-            res.redirect("/");
-        } else {
-            res.render("campgrounds/index",{campgrounds:allCampgrounds, page:"campgrounds"});
-        }
-    });
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), "gi");
+        campground.find({ name: regex }, function(err, allCampgrounds){
+            if(err){
+                console.log(err);
+            } else if(allCampgrounds.length < 1){
+                req.flash("error", "No campgrounds found matching your search, please try again.");
+                return res.redirect("/campgrounds");
+            } else {
+                return res.render("campgrounds/index",{campgrounds:allCampgrounds, page:"campgrounds"});
+            }
+        });
+    } else {
+        campground.find({}, function (err, allCampgrounds) {
+            if(err){
+                req.flash("error", "Campgrounds not found");
+                res.redirect("/");
+            } else {
+                res.render("campgrounds/index",{campgrounds:allCampgrounds, page:"campgrounds"});
+            }
+        });
+    }
 });
 
 //NEW
@@ -109,5 +122,9 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req,res){
         }
     });
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;

@@ -14,7 +14,11 @@ header.jumbotron {
 header.jumbotron .container h1 {
   font-size: 3.5rem;
 }
-.nav-item.active {
+.container .alert {
+  text-align: center;
+  font-size: .9rem;
+}
+.nav-link.active {
   border-radius: 5px;
 }
 .active {
@@ -49,6 +53,27 @@ header.jumbotron .container h1 {
 .img-thumbnail {
   padding: 0;
   margin-bottom: 12px;
+}
+header.jumbotron .container form {
+  margin-top: -2px;
+}
+header.jumbotron .container hr {
+  margin-top: -2px;
+  max-width: 250px;
+}
+.form-inline .form-group {
+  margin: 0 auto;
+  max-width: 192px;
+}
+.form-inline .form-group .form-control {
+  width: 150px;
+  margin: 0 auto;
+  font-size: .8rem;
+}
+.form-inline .form-group .btn-sm {
+  margin: 0 auto;
+  margin-top: 5px;
+  font-size: .75rem;
 }
 .caption-full {
   padding: 9px;
@@ -120,6 +145,9 @@ header.jumbotron .container h1 {
 .form-size h4{
   margin-bottom: 15px;
 }
+.form-size .form-group .form-control {
+  font-size: .85rem;
+}
 .form-control {
   border: 1px solid #999;
 }
@@ -128,9 +156,6 @@ header.jumbotron .container h1 {
 }
 .auth form .form-group {
   margin-bottom: 8px;
-}
-.auth form .form-group .form-control{
-  height: 34px;
 }
 .auth p {
   font-size: 12.5px;
