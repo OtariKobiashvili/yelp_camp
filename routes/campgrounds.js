@@ -59,6 +59,10 @@ router.post("/", middleware.isLoggedIn, function(req,res){
         username: req.user.username
     }
     geocoder.geocode(req.body.location, function(err, data){
+        if(data.results.length < 1){
+            req.flash("error","Please enter a valid location");
+            return res.redirect("/campgrounds/new");
+        }
         var lat = data.results[0].geometry.location.lat;
         var lng = data.results[0].geometry.location.lng;
         var location = data.results[0].formatted_address;
@@ -106,6 +110,10 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req,res){
 
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
   geocoder.geocode(req.body.campground.location, function (err, data) {
+    if(data.results.length < 1){
+        req.flash("error","Please enter a valid location");
+        return res.redirect("/campgrounds/new");
+    }
     var lat = data.results[0].geometry.location.lat;
     var lng = data.results[0].geometry.location.lng;
     var location = data.results[0].formatted_address;
