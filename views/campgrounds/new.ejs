@@ -3,7 +3,7 @@
         <h3 class = "text-center">New Campground</h3>
         <div class = "row">
             <div class="form-size">
-                <form action="/campgrounds" method="POST">
+                <form action="/campgrounds" method="POST" id="form">
                     <div class = "form-group">
                         <input class ="form-control" type="text" placeholder="Name" name="name"></input>
                     </div>
@@ -14,13 +14,18 @@
                         <input class="form-control" type="text" name="location" id="location" placeholder="Location">
                     </div>
                     <div class = "form-group">
-                        <input class ="form-control" type="text" placeholder="Campground Image" name="image"></input>
+                        <input id ="image-search" class ="form-control" type="text" placeholder="Campground Image URL" name="image"></input>
+                    </div>
+                    <div class="form-group">
+                        <img class="form-control" src="">
+                        <p class="text-muted small text-center"></p>
                     </div>
                     <div class = "form-group">
-                        <textarea class ="form-control" name="description" rows="10" placeholder="Please describe the campground"></textarea>
+                        <textarea class ="form-control" name="description" rows="7" placeholder="Please describe the campground"></textarea>
                     </div>
                     <div class = "form-group">
                         <button class= "btn btn-primary btn-block">Submit</button>
+                        <p class="text-muted small text-center"></p>
                     </div>
                 </form>
                 <a class="back" href="/campgrounds">Go Back</a>
