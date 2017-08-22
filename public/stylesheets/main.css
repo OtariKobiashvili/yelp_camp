@@ -143,7 +143,7 @@ header.jumbotron .container hr {
   color: white;
 }
 .form-size {
-  width: 37.5%;
+  width: 34.5%;
   margin: 30px auto;
 }
 .form-size h4{
@@ -154,6 +154,7 @@ header.jumbotron .container hr {
 }
 .form-control {
   border: 1px solid #999;
+  border-radius: 6px;
 }
 .form-group img {
   height: 225px;
@@ -195,6 +196,51 @@ header.jumbotron .container hr {
 .comment {
   font-size: 13.5px;
 }
+/* ///////////////////user show page */
+div.col-12.col-sm-7.col-md-8.col-lg-9 {
+  border-radius: 5px;
+  min-height: 550px;
+}
+div.col-12.col-sm-7.col-md-8.col-lg-9 h6 {
+  font-size: .92rem;
+  margin-bottom: 0;
+}
+div.col-12.col-sm-7.col-md-8.col-lg-9 hr {
+  margin-top: .5rem;
+  margin-bottom: .75rem;
+  border: none;
+}
+div.col-12.col-sm-7.col-md-8.col-lg-9 .campground {
+  padding-bottom: 10px;
+  padding-top: 5px;
+  background-color: #fff;
+  /* border-bottom: 1px solid rgba(0,0,0,.1); */
+  margin-bottom: 15px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
+  transition: all .195s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+div.col-12.col-sm-7.col-md-8.col-lg-9 .campground:hover {
+  transform: translate(0, -5px);
+  z-index: 100;
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.3);
+}
+.row.campground .col-6.col-sm-7 .text-center p {
+  margin: 0;
+  margin-top: 10px;
+}
+.row.campground .col-6.col-sm-7 .text-center span.small.text-muted em {
+  font-size: .65rem;
+}
+div.col-6.col-sm-5.col-md-4.col-lg-3 .img-thumbnail{
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
+}
+div.col-6.col-sm-5.col-md-4.col-lg-3 h6 {
+  font-size: .85rem;
+}
+div.col-6.col-sm-5.col-md-4.col-lg-3 hr {
+  margin-bottom: 0;
+}
+/* /////////////////footer */
 footer {
   width: 100%;
   height: 40px;
@@ -209,9 +255,17 @@ footer .container .text-muted {
   padding: 15px 0;
   margin: 0;
 }
+@media screen and (min-width: 992px){
+  .form-size {
+    width: 27%
+  }
+}
 @media screen and (max-width: 767px){
   .form-size {
-    width: 47.5%
+    width: 50%
+  }
+  .row.campground .col-6.col-sm-7 .text-center p.small {
+    display: none;
   }
 }
 @media screen and (max-width: 575px){
@@ -221,5 +275,15 @@ footer .container .text-muted {
   .container {
     margin: 0;
     margin-top: 15px;
+  }
+  /* ///////user show page */
+  div.col-6.col-sm-5.col-md-4.col-lg-3 hr {
+    margin-bottom: 1rem;
+  }
+  div.col-6.col-sm-5.col-md-4.col-lg-3 {
+    margin: 0 auto;
+  }
+  .row.campground .col-6.col-sm-7 .text-center p.small {
+    display: block;
   }
 }
