@@ -5,14 +5,21 @@
             <div class = "container text-center">
                 <h1><i class="fa fa-globe" aria-hidden="true"></i></h1>
                 <h1>Welcome to YelpCamp</h1>
-                <p class="text-muted">View our hand-picked campgrounds from all over.</p>
+                <p class="text-muted small">View our hand-picked campgrounds from all over.</p>
                 <p>
                     <a class = "btn btn-primary btn-md" href ="/campgrounds/new">New Campground</a>
                 </p>
+                <hr>
+                <form action="/campgrounds" method="GET" class="form-inline" id="campground-search">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Search campgrounds" class="form-control">
+                    </div>
+                </form>
+                <span class="text-center text-muted small" id="search-message"></span>
             </div>
         </header>
 
-        <div class = "row text-center">
+        <div class = "row text-center" id="campground-grid">
             <% campgrounds.forEach(function(camp){ %>
                 <div class = "col-md-4 col-sm-6">
                     <div class = "img-thumbnail">

@@ -6,15 +6,40 @@ var campground = require("../models/campground"),
     middleware = require("../middleware");
 
 router.get("/", function(req,res){
-    //get all campgrounds then render
-    campground.find({}, function (err, allCampgrounds) {
-        if(err){
-            req.flash("error", "Campgrounds not found");
-            res.redirect("/");
+    //if theres is a search respond with campgrounds that match the search by name
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), "gi");
+        console.log(regex)
+        //Check to see what search is, if its empty, return all campgrounds
+        if(regex == "/all/gi"){
+            campground.find({}, function(err, allCampgrounds){
+                if(err){
+                    console.log(err);
+                } else {
+                    return res.json(allCampgrounds);
+                }
+            });
         } else {
-            res.render("campgrounds/index",{campgrounds:allCampgrounds, page:"campgrounds"});
+            campground.find({ name: regex }, function(err, allCampgrounds){
+                if(err){
+                    console.log(err);
+                } else {
+                    return res.json(allCampgrounds);
+                }
+            });
         }
-    });
+
+    } else {
+        //else works as a normal route that render the index template
+        campground.find({}, function (err, allCampgrounds) {
+            if(err){
+                req.flash("error", "Campgrounds not found");
+                res.redirect("/");
+            } else {
+                res.render("campgrounds/index",{campgrounds:allCampgrounds, page:"campgrounds"});
+            }
+        });
+    }
 });
 
 //NEW
@@ -109,5 +134,9 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req,res){
         }
     });
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;
