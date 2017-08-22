@@ -1,0 +1,50 @@
+<% include ../partials/header%>
+
+<div class="row">
+  <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+
+    <div class="img-thumbnail">
+      <img class="img-fluid" src="<%= user.avatar %>" alt="user avatar">
+      <div class="caption-full">
+        <h5><%= user.username %></h5>
+        <h6><%= user.firstName + " " + user.lastName %></h6>
+        <a class="small" href="mailto:<%= user.email %>"><%= user.email %></a>
+        <% if(currentUser && user._id.equals(currentUser.id)){ %>
+          <div>
+            <a href="/users/<%= user._id%>/edit" class="btn btn-sm btn-warning">Edit Profile</a>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <p class="small">
+      <%= user.description %>
+    </p>
+    <hr>
+  </div>
+  <div class="col-12 col-sm-7 col-md-8 col-lg-9">
+    <h6 class="text-center"><%= user.username%>'s Campgrounds</h6>
+    <hr>
+    <% campgrounds.forEach(function(campground) { %>
+      <div class="row campground">
+        <div class="col-6 col-sm-5">
+          <div class="img-thumbnail">
+            <img src="<%= campground.image %>" alt="campground image" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-6 col-sm-7">
+          <div class="text-center">
+            <h6><%= campground.name %></h6>
+            <span class="small text-muted"><em><%= moment(campground.created).fromNow() %></em></span>
+            <p class="small">Location: <%= campground.location %></p>
+            <p class="small"><%= campground.description %></p>
+            <p>
+              <a href = "/campgrounds/<%= campground._id%>" class = "btn btn-sm btn-primary"><i class="fa fa-info-circle" aria-hidden="true"></i> More Info</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+<% include ../partials/footer%>
