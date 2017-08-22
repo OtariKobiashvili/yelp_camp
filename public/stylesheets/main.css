@@ -155,6 +155,9 @@ header.jumbotron .container hr {
 .form-control {
   border: 1px solid #999;
 }
+.form-group img {
+  height: 225px;
+}
 .auth {
   margin-top: 110px;
 }
