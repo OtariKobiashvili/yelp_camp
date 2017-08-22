@@ -1,5 +1,6 @@
 body {
   background: #000;
+  font-family: 'Open Sans', sans-serif;
 }
 #landing-header {
   z-index: 1;
@@ -9,8 +10,9 @@ body {
 }
 #landing-header h1 {
   color: white;
-}
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
 
+}
 p.text-center{
   z-index: 1;
   color: white;
@@ -19,6 +21,18 @@ p.text-center{
 }
 p.text-center a {
   color: white;
+}
+.btn-primary {
+  cursor: pointer;
+  background-color: #d32323;
+  border-color: #8d0005;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
+  margin-bottom: 9px;
+}
+.btn-primary:hover {
+  background-color: #ed0008;
+  border-color: #8d0005;
+  transition: ease-in-out, .1s;
 }
 .slideshow {
   position: fixed;
@@ -79,6 +93,7 @@ p.text-center a {
     opacity: 0
   }
 }
+
 /* Older browser support - .no-cssanimations class added by modernizr */
 .no-cssanimations .slideshow li {
 	opacity: 1;

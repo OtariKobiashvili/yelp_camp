@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="list-group">
-                    <li class="list-group-item active">Info One</li>
-                    <li class="list-group-item">Info One</li>
-                    <li class="list-group-item">Info One</li>
+                    <li class="list-group-item list-group-item-action active">Info One</li>
+                    <li class="list-group-item list-group-item-action">Info Two</li>
+                    <li class="list-group-item list-group-item-action">Info Three</li>
                 </div>
                 <div id="map"></div>
             </div>
@@ -13,10 +13,10 @@
                 <div class="img-thumbnail">
                     <img class="img-fluid" src = "<%= campground.image %>"></img>
                     <div class="caption-full">
-                        <h4 class="float-right">$<%= campground.price %>/night</h4>
-                        <h4><a href="<%= campground._id %>"><%= campground.name %></a></h4>
+                        <h6 class="float-right">$<%= campground.price %>/night</h6>
+                        <h4><%= campground.name %></h4>
                         <p><%= campground.description %></p>
-                        <p>
+                        <p class="small">
                             <% if(currentUser && campground.author.id.equals(currentUser.id)){ %>
                                 <em>Submitted by: <strong>You , <%= moment(campground.created).fromNow() %></strong></em>
                             <% } else { %>
@@ -35,24 +35,28 @@
                 <div class="card bg-faded">
                     <div class="card-block">
                         <div class="text-right">
-                            <a class = "btn btn-success" href="/campgrounds/<%= campground._id%>/comments/new">Add New Comment</a>
+                            <a class = "btn btn-success" href="/campgrounds/<%= campground._id%>/comments/new">Comment</a>
                         </div>
                         <hr>
                         <% campground.comments.forEach(function(comment){ %>
                             <div class="row">
                                 <div class="col-md-12">
                                     <strong><%= comment.author.username%></strong>
-                                    <span class="float-right"> <%= moment(comment.created).fromNow() %> </span>
-                                    <p><%= comment.text %></p>
-                                    <% if(currentUser && comment.author.id.equals(currentUser.id)){ %>
-                                    <a class="btn btn-sm btn-warning"
-                                    href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">
-                                        Edit
-                                    </a>
-                                    <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-                                        <button class="btn btn-sm btn-danger">Delete</button>
-                                    </form>
-                                    <% } %>
+                                    <span class="float-right small"> <%= moment(comment.created).fromNow() %>
+                                        <div>
+                                            <% if(currentUser && comment.author.id.equals(currentUser.id)){ %>
+                                            <a class="btn btn-sm btn-warning"
+                                            href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">
+                                                Edit
+                                            </a>
+                                            <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                            <% } %>
+                                        </div>
+                                    </span>
+                                    <p class="comment"><%= comment.text %></p>
+
                                 </div>
                             </div>
                         <% }) %>
