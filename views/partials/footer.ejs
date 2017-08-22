@@ -1,4 +1,24 @@
         </div>
+
+        <footer>
+            <div class="container">
+                <p class="text-muted small">
+                    YelpCamp 2017 |
+                    <a href="/campgrounds">Home</a>
+                    |
+                    <% if(!currentUser){ %>
+                    <a href="/login">Login</a>
+                    |
+                    <a href="/register">Register</a>
+                    <% }else { %>
+                    <a href="/campgrounds/new">New Campground</a>
+                    |
+                    <a href="/logout">Log Out</a>
+                    |
+                    <% } %>
+                </p>
+            </div>
+        </footer>
         <script
             src="http://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
