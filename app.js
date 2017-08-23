@@ -17,7 +17,8 @@ var express = require("express"),
 var campgroundRoutes = require("./routes/campgrounds"),
     commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index"),
-    userRoutes = require("./routes/users");
+    userRoutes = require("./routes/users"),
+    ratingRoutes = require("./routes/ratings");
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/yelp_camp");
@@ -50,8 +51,9 @@ app.use(function(req,res,next){
 });
 
 app.use("/", indexRoutes);
-app.use("/users/", userRoutes);
+app.use("/users", userRoutes);
 app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/ratings", ratingRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
