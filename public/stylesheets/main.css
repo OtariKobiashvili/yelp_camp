@@ -176,13 +176,8 @@ header.jumbotron .container hr {
 .list-group-item {
   padding: .6rem 1.15rem;
 }
-.list-group-item-action {
-  cursor: pointer;
-}
-.list-group-item.active {
-  cursor: initial;
-  background: #d32323;
-  border-color: #d32323;
+.list-group-item span {
+  display: block;
 }
 .img-thumbnail .caption-full h4:nth-child(2) {
   color: #d32323;
@@ -266,6 +261,18 @@ footer .container .text-muted {
   }
   .row.campground .col-6.col-sm-7 .text-center p.small {
     display: none;
+  }
+  .list-group-item {
+    font-size: 1.1rem;
+  }
+  .list-group-item span {
+    float: left;
+    margin-top: 4px;
+    margin-right: 5px;
+  }
+  .starability-grow {
+    width: auto;
+    min-height: auto;
   }
 }
 @media screen and (max-width: 575px){
