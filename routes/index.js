@@ -18,7 +18,7 @@ router.post("/register", function(req,res){
     var newUser = new user({
         username: req.body.username,
         firstName: req.body.firstName,
-        lastname: req.body.lastName,
+        lastName: req.body.lastName,
         email: req.body.email
     });
     if(req.body.adminCode === "njnetsfan") {
