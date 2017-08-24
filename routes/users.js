@@ -9,13 +9,13 @@ var campground = require("../models/campground"),
 router.get("/:id", function(req, res) {
   user.findById(req.params.id, function(err, foundUser) {
     if(err) {
-      req.flash("error", "Something went wrong: " + err);
-      res.redirect(".");
+      req.flash("error", "Something went wrong");
+      return res.redirect("/campgrounds");
     }
     campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds) {
       if(err) {
         req.flash("error", "Something went wrong: " + err);
-        res.redirect(".");
+        return res.redirect("/campgrounds");
       }
       res.render("users/show", { user : foundUser, campgrounds: campgrounds})
     });
@@ -27,7 +27,7 @@ router.get("/:id/edit", middleware.checkProfileOwnership, function(req, res) {
   user.findById(req.params.id, function(err, foundUser) {
     if(err) {
       req.flash("error", "Something went wrong: " + err);
-      res.redirect(".");
+      return res.redirect(".");
     }
     res.render("users/edit", {user: foundUser});
   });

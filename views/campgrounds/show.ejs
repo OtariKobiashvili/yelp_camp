@@ -1,15 +1,63 @@
 <% include ../partials/header%>
 
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4 col-lg-3">
                 <div class="list-group">
-                    <li class="list-group-item list-group-item-action active">Info One</li>
-                    <li class="list-group-item list-group-item-action">Info Two</li>
-                    <li class="list-group-item list-group-item-action">Info Three</li>
+                    <li id="average-rating" class="list-group-item list-group-item-action small">Average Rating: <%= campground.rating.toString().slice(0, 4) %> stars</li>
+                    <% if(currentUser && campground.ratings.length > 0) { %>
+                        <% var counter = 0 %>
+                        <% for(var i = 0; i < campground.ratings.length; i++){ %>
+                            <% if(campground.ratings[i].author.id.equals(currentUser.id)) { %>
+                                <% counter++ %>
+                                <% var rating = campground.ratings[i].rating %>
+                            <% } %>
+                       <% } %>
+                       <% if(counter > 0) { %>
+                            <li class="list-group-item list-group-item-action small">Your Rating: <%= rating %> stars</li>
+                            <li class="list-group-item list-group-item-action small">Thank you for rating this campground!</li>
+                       <% } else { %>
+                            <li class="list-group-item list-group-item-action small hi" id="rating">
+                                <fieldset class="starability-grow">
+                                <span>Leave a rating:</span>
+                                    <input type="radio" id="first-rate1" name="rating" value="1" />
+                                    <label for="first-rate1" title="Terrible">1 star</label>
+                                    <input type="radio" id="first-rate2" name="rating" value="2" />
+                                    <label for="first-rate2" title="Not good">2 stars</label>
+                                    <input type="radio" id="first-rate3" name="rating" value="3" />
+                                    <label for="first-rate3" title="Average">3 stars</label>
+                                    <input type="radio" id="first-rate4" name="rating" value="4" />
+                                    <label for="first-rate4" title="Very good">4 stars</label>
+                                    <input type="radio" id="first-rate5" name="rating" value="5" />
+                                    <label for="first-rate5" title="Amazing">5 stars</label>
+                                </fieldset>
+                                <span id="rating-message"></span>
+                            </li>
+                       <% } %>
+                    <% } else if(currentUser && campground.ratings.length < 1) { %>
+                        <li class="list-group-item list-group-item-action small bye" id="rating">
+                            <fieldset class="starability-grow">
+                            <span>Leave a rating:</span>
+                                <input type="radio" id="first-rate1" name="rating" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+                                <input type="radio" id="first-rate2" name="rating" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+                                <input type="radio" id="first-rate3" name="rating" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+                                <input type="radio" id="first-rate4" name="rating" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+                                <input type="radio" id="first-rate5" name="rating" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+                            </fieldset>
+                            <span id="rating-message"></span>
+                        </li>
+                    <% } else if(!currentUser) { %>
+                        <li class="list-group-item list-group-item-action small">Please login, or register, to rate this campground.</li>
+                    <% } %>
+
                 </div>
                 <div id="map"></div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8 col-lg-9">
                 <div class="img-thumbnail">
                     <img class="img-fluid" src = "<%= campground.image %>"></img>
                     <div class="caption-full">

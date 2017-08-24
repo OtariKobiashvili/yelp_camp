@@ -84,12 +84,27 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 //SHOW - show more info about campground
 router.get("/:id", function(req, res){
     //find campground with provided id,
-    campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+    campground.findById(req.params.id).populate("comments").populate("ratings").exec(function(err, foundCampground){
+        var isAjax = req.xhr;
         if(err){
-            req.flash("error", err.message);
+            req.flash("error", "No campground found.");
             res.redirect("/campgrounds");
         } else {
-            console.log(foundCampground);
+            if(foundCampground.ratings.length > 0) {
+              var ratings = [];
+              var length = foundCampground.ratings.length;
+              foundCampground.ratings.forEach(function(rating) {
+                ratings.push(rating.rating)
+              });
+              var rating = ratings.reduce(function(total, element) {
+                return total + element;
+              });
+              foundCampground.rating = rating / length;
+              foundCampground.save();
+            }
+            if(isAjax) {
+                return res.json(foundCampground.rating);
+            }
             res.render("campgrounds/show", {campground: foundCampground});
         }
     });
