@@ -6,7 +6,7 @@ body {
   z-index: 1;
   position: relative;
   text-align: center;
-  padding-top: 28vh;
+  padding-top: 30vh;
 }
 #landing-header h1 {
   color: #fff;
@@ -124,6 +124,9 @@ p.text-center a {
 	opacity: 1;
 }
 @media screen and (max-width: 575px){
+  #landing-header {
+    padding-top: 35vh;
+  }
   #landing-header h1 {
     font-size: 2.25rem;
   }

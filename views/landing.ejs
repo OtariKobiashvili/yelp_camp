@@ -28,12 +28,14 @@
         </div>
 
         <div id="landing-header">
-            <h1>YelpCamp</h1>
-            <h3>Where will your next adventure take you?</h3>
+            <h1><i class="fa fa-globe" aria-hidden="true"></i> YelpCamp</h1>
+            <h3>Looking for an adventure? Let us help.</h3>
             <hr>
             <a href="/campgrounds" class="btn btn-primary">Get Started</a>
             <div>
-                <h6>Already a memeber? <a href="/login">Login</a> or <a href="/register">Register</a></h6>
+                <% if(!currentUser) { %>
+                    <h6>Already a memeber? <a href="/login">Login</a> or <a href="/register">Register</a></h6>
+                <% } %>
             </div>
         </div>
 
