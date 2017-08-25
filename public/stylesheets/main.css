@@ -217,14 +217,28 @@ header.jumbotron .container hr {
   font-size: 14px;
 }
 .col-md-12 strong {
-  font-size: 17px;
+  font-size: 14px;
+}
+.profile {
+  border-right: 1px solid rgba(0,0,0, .1)
+}
+.profile .img-thumbnail {
+  width: 65px;
+  margin-bottom: 1px;
+}
+.profile .small {
+  font-size: 10px;
+}
+.profile div .btn {
+  font-size: .65rem;
 }
 .comment {
   font-size: 13.5px;
 }
-span.float-right.small {
+.col-8.col-sm-9.col-md-8 span.small {
   margin-top: 6px;
-  font-size: .75rem;
+  font-size: .7rem;
+  color: rgba(0,0,0,.5)
 }
 /* ///////////////////user show page */
 div.col-12.col-sm-7.col-md-8.col-lg-9 {
@@ -300,8 +314,8 @@ footer .container .text-muted {
   .row.campground .col-6.col-sm-7 .text-center p.small {
     display: none;
   }
-  .col-md-8.col-lg-9 .img-thumbnail{
-    margin-top: 12px;
+  #map {
+    margin-bottom: 12px;
   }
   .list-group {
     margin-bottom: 12px;
