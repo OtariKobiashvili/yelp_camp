@@ -69,6 +69,7 @@ header.jumbotron .container hr {
   width: 152px;
   margin: 0 auto;
   font-size: .8rem;
+  box-shadow: 0 1px 1px rgba(0,0,0,.3);
 }
 #search-message {
   position: absolute;
@@ -84,10 +85,13 @@ header.jumbotron .container hr {
   margin-bottom: 20px;
 }
 .delete-form {
-  display: inline;
+  display: inline-block;
 }
 .delete-form button {
   cursor: pointer;
+}
+.btn {
+  box-shadow: 0 1px 1px rgba(0,0,0,.3);
 }
 .btn-primary {
   cursor: pointer;
@@ -102,6 +106,27 @@ header.jumbotron .container hr {
 .btn-success {
   background: #3cb52e;
   border-color: #28781e;
+  font-size: .8rem;
+}
+.btn-warning {
+  font-size: .8rem;
+  background-color: #ef5d10;
+  border-color: #a44100;
+}
+.btn-warning:hover {
+  background-color: #f06a23;
+  border-color: #a44100;
+}
+.btn-danger {
+  font-size: .8rem;
+  color: black;
+  background: #eceeef;
+  border-color: rgba(0,0,0,.3);
+}
+.btn-danger:hover {
+  color: black;
+  background: #f9f9f9;
+  border-color: rgba(0,0,0,.3);
 }
 .btn-success:hover {
   background: #41c532;
@@ -146,7 +171,7 @@ header.jumbotron .container hr {
   width: 34.5%;
   margin: 30px auto;
 }
-.form-size h4{
+.form-size h5{
   margin-bottom: 15px;
 }
 .form-size .form-group .form-control {
@@ -161,6 +186,12 @@ header.jumbotron .container hr {
 }
 .auth {
   margin-top: 110px;
+}
+#login {
+  min-height: 419px
+}
+#register {
+  min-height: 419px;
 }
 .auth form .form-group {
   margin-bottom: 8px;
@@ -191,6 +222,10 @@ header.jumbotron .container hr {
 .comment {
   font-size: 13.5px;
 }
+span.float-right.small {
+  margin-top: 6px;
+  font-size: .75rem;
+}
 /* ///////////////////user show page */
 div.col-12.col-sm-7.col-md-8.col-lg-9 {
   border-radius: 5px;
@@ -218,6 +253,9 @@ div.col-12.col-sm-7.col-md-8.col-lg-9 .campground:hover {
   transform: translate(0, -5px);
   z-index: 100;
   box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.3);
+}
+.row.campground .col-12 .btn-sm {
+    font-size: .8rem;
 }
 .row.campground .col-6.col-sm-7 .text-center p {
   margin: 0;
@@ -262,8 +300,15 @@ footer .container .text-muted {
   .row.campground .col-6.col-sm-7 .text-center p.small {
     display: none;
   }
+  .col-md-8.col-lg-9 .img-thumbnail{
+    margin-top: 12px;
+  }
+  .list-group {
+    margin-bottom: 12px;
+  }
   .list-group-item {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 300;
   }
   .list-group-item span {
     float: left;
@@ -276,6 +321,21 @@ footer .container .text-muted {
   }
 }
 @media screen and (max-width: 575px){
+  header.jumbotron .container h1 {
+  font-size: 2.5rem;
+  }
+  header.jumbotron .container p .btn-primary {
+    font-size: .8rem;
+  }
+  header.jumbotron .container form .form-control {
+    font-size: .7rem;
+  }
+  .img-thumbnail p .btn-primary {
+    font-size: .75rem;
+  }
+  .img-thumbnail .caption h5 {
+    font-size: 1.1rem;
+  }
   .form-size {
     width: 59.5%;
   }
@@ -289,6 +349,13 @@ footer .container .text-muted {
   }
   div.col-6.col-sm-5.col-md-4.col-lg-3 {
     margin: 0 auto;
+  }
+  .row.campground {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .row.campground .col-12 .btn-sm {
+    font-size: .75rem;
   }
   .row.campground .col-6.col-sm-7 .text-center p.small {
     display: block;
