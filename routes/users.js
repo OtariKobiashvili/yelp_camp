@@ -34,7 +34,7 @@ router.get("/:id/edit", middleware.checkProfileOwnership, function(req, res) {
 });
 
 //put request
-router.put("/:id", middleware.checkProfileOwnership, function(req, res) {
+router.put("/:id", middleware.checkProfileOwnership, middleware.checkNudity, function(req, res) {
   var dataToUpdate = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,

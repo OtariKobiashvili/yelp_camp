@@ -2,7 +2,9 @@
 var campground = require("../models/campground"),
     comment = require("../models/comment"),
     user = require("../models/user"),
-    middlewareObj = {};
+    middlewareObj = {},
+    sightengine = require('sightengine')('1808369786', 'rvhY88nejvouTY3CB9rP');
+
 
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
     if(req.isAuthenticated()){
@@ -74,12 +76,40 @@ middlewareObj.isSafe = function(req, res, next) {
     }
 }
 
+middlewareObj.checkNudity = function(req, res, next) {
+    if(checkURL(req.body.avatar)) {
+        sightengine.check(['nudity']).set_url(req.body.avatar).then(function(result) {
+            var nude = result.nudity.raw
+            var safe = result.nudity.safe
+            if(nude < .20 || safe > .50) {
+                next();
+            } else {
+                req.flash("error", "No nudity allowed, please try again with an appropiate image." )
+                res.redirect("back");
+            }
+        }).catch(err => {
+            if(err) {
+                req.flash("error", "You can not edit your profile at this time.");
+                res.redirect("back");
+            }
+        });
+    } else {
+        req.flash("error", "Please use a JPG image.")
+        res.redirect("back");
+    }
+}
+
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
     req.flash("error", "You need to be logged in to do that");
     res.redirect("/login");
+}
+
+//check to make sure img is a jpg
+function checkURL(url) {
+    return(url.match(/\.(jpg)$/) != null);
 }
 
 module.exports = middlewareObj
