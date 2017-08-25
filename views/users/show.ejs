@@ -9,6 +9,7 @@
         <h5><%= user.username %></h5>
         <h6><%= user.firstName + " " + user.lastName %></h6>
         <a class="small" href="mailto:<%= user.email %>"><%= user.email %></a>
+        <p class="text-muted small">Member since: <%= user.createdAt.toDateString().slice(4)%></p>
         <% if(currentUser && user._id.equals(currentUser.id)){ %>
           <div>
             <a href="/users/<%= user._id%>/edit" class="btn btn-sm btn-warning">Edit Profile</a>

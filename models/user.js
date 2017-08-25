@@ -9,6 +9,7 @@ var userSchema = mongoose.Schema({
   lastName: {type: String, default: "Last Name"},
   email: {type: String, default: "email@gmail.com"},
   description: {type: String, default: "Edit your profile to add a description about you."},
+  createdAt: {type:Date, default: Date.now},
   isAdmin: {type: Boolean, default: false}
 });
 

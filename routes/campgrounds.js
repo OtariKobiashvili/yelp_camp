@@ -3,6 +3,7 @@ var express = require("express"),
     geocoder = require("geocoder");
 
 var campground = require("../models/campground"),
+    user = require("../models/user"),
     middleware = require("../middleware");
 
 router.get("/", function(req,res){
@@ -105,6 +106,18 @@ router.get("/:id", function(req, res){
             if(isAjax) {
                 return res.json(foundCampground.rating);
             }
+            //for each comment, find the author by id, then update the authors avatar
+            foundCampground.comments.forEach(function(comment) {
+                user.findById(comment.author.id, function(err, foundUser) {
+                    if(err) {
+                        req.flash("error", "Something went wrong: " + err.message);
+                        return res.redirect("/campgrounds");
+                    }
+                    comment.author.avatar = foundUser.avatar;
+                    foundCampground.save();
+                });
+            });
+            console.log(foundCampground.comments);
             res.render("campgrounds/show", {campground: foundCampground});
         }
     });
