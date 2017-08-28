@@ -30,13 +30,13 @@ header.jumbotron .container h1 {
 .container {
   margin-top: 15px;
 }
-.col-md-4.col-sm-6 .img-thumbnail {
+.campground-card .img-thumbnail {
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
   border: none;
   border-bottom: 1px solid #ddd;
   transition: all .195s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-.col-md-4.col-sm-6 .img-thumbnail:hover {
+.campground-card .img-thumbnail:hover {
   transform: translate(0, -5px);
   z-index: 100;
   box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.3);
@@ -182,7 +182,7 @@ header.jumbotron .container hr {
   border-radius: 6px;
 }
 .form-group img {
-  height: 225px;
+  min-height: 225px;
 }
 .auth {
   margin-top: 110px;
@@ -235,26 +235,21 @@ header.jumbotron .container hr {
 .comment {
   font-size: 13.5px;
 }
-.col-8.col-sm-9.col-md-8 span.small {
-  margin-top: 6px;
-  font-size: .7rem;
-  color: rgba(0,0,0,.5)
-}
 /* ///////////////////user show page */
-div.col-12.col-sm-7.col-md-8.col-lg-9 {
+div.user-history {
   border-radius: 5px;
   min-height: 550px;
 }
-div.col-12.col-sm-7.col-md-8.col-lg-9 h6 {
+div.user-history h6 {
   font-size: .92rem;
   margin-bottom: 0;
 }
-div.col-12.col-sm-7.col-md-8.col-lg-9 hr {
+div.user-history hr {
   margin-top: .5rem;
   margin-bottom: .75rem;
   border: none;
 }
-div.col-12.col-sm-7.col-md-8.col-lg-9 .campground {
+div.user-history .campground {
   padding-bottom: 10px;
   padding-top: 5px;
   background-color: #fff;
@@ -263,7 +258,7 @@ div.col-12.col-sm-7.col-md-8.col-lg-9 .campground {
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
   transition: all .195s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-div.col-12.col-sm-7.col-md-8.col-lg-9 .campground:hover {
+div.user-history .campground:hover {
   transform: translate(0, -5px);
   z-index: 100;
   box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.3);
@@ -275,17 +270,23 @@ div.col-12.col-sm-7.col-md-8.col-lg-9 .campground:hover {
   margin: 0;
   margin-top: 10px;
 }
-.row.campground .col-6.col-sm-7 .text-center span.small.text-muted em {
+span.camp-date em {
   font-size: .65rem;
 }
-div.col-6.col-sm-5.col-md-4.col-lg-3 .img-thumbnail{
+div.user-card .img-thumbnail {
+  padding: 20px;
+}
+div.user-card .img-thumbnail{
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
 }
-div.col-6.col-sm-5.col-md-4.col-lg-3 h6 {
+div.user-card h6 {
   font-size: .85rem;
 }
-div.col-6.col-sm-5.col-md-4.col-lg-3 hr {
+div.user-card hr {
   margin-bottom: 0;
+}
+div.user-card .caption-full {
+  padding: 1px;
 }
 /* /////////////////footer */
 footer {
@@ -335,6 +336,9 @@ footer .container .text-muted {
   }
 }
 @media screen and (max-width: 575px){
+  .col-md-12 strong {
+  font-size: 12px;
+  }
   header.jumbotron .container h1 {
   font-size: 2.5rem;
   }
@@ -358,10 +362,10 @@ footer .container .text-muted {
     margin-top: 15px;
   }
   /* ///////user show page */
-  div.col-6.col-sm-5.col-md-4.col-lg-3 hr {
+  div.user-card hr {
     margin-bottom: 1rem;
   }
-  div.col-6.col-sm-5.col-md-4.col-lg-3 {
+  div.user-card {
     margin: 0 auto;
   }
   .row.campground {
