@@ -5,6 +5,8 @@ var express= require("express"),
 
 var middleware = require("../middleware");
 
+require('dotenv').config();
+
 router.get("/", function(req,res){
     res.render("landing");
 });
@@ -21,7 +23,7 @@ router.post("/register", function(req,res){
         lastName: req.body.lastName,
         email: req.body.email
     });
-    if(req.body.adminCode === "njnetsfan") {
+    if(req.body.adminCode === process.env.ADMIN_SECRET) {
         newUser.isAdmin = true;
     }
     user.register(newUser, req.body.password, function(err, user){

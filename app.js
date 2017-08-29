@@ -20,9 +20,13 @@ var campgroundRoutes = require("./routes/campgrounds"),
     userRoutes = require("./routes/users"),
     ratingRoutes = require("./routes/ratings");
 
-mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelp_camp");
+// load environment variables
+require('dotenv').config()
 
+var dbURI = process.env.DB_URI || 'mongodb://localhost/yelp_camp';
+
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.dbURI);
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
@@ -32,7 +36,7 @@ app.locals.moment = require('moment');
 
 //PASSPORT config
 app.use(require("express-session")({
-    secret: "Yelp Camp Secret 1232141342432341 12 32142 525 2 441 313 41 3313432e",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
