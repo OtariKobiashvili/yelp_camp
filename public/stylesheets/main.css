@@ -1,18 +1,30 @@
+
 body {
   background: #f9f9f9;
   font-family: 'Open Sans', sans-serif;
 }
 header.jumbotron {
-  background: -webkit-linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
-  background: -moz-linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
-  background: -o-linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
-  background: linear-gradient(to right, #f9f9f9 0%, #eceeef 50%, #f9f9f9 100%);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .4) 50%, rgba(0, 0, 0, .1) 100%), url("https://images.unsplash.com/photo-1431664161086-95e609b5768f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=e154941dc512971e304e45cddd804825");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1px;
+  margin-top: -5px;
+  color: #fff;
 }
 header.jumbotron .container h1 {
-  font-size: 3.5rem;
+  font-size: 41px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
+}
+header.jumbotron .container .small {
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
+  font-size: 90%;
+}
+.jumbotron .container .alert {
+  margin-top: -41px;
 }
 .container .alert {
   text-align: center;
@@ -27,8 +39,14 @@ header.jumbotron .container h1 {
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .open>.nav-link {
   color: white;
 }
+.jumbotron .container {
+  margin-top: initial;
+}
 .container {
   margin-top: 15px;
+}
+.campgrounds-container {
+  min-height: 250px;
 }
 .campground-card .img-thumbnail {
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
@@ -58,24 +76,46 @@ header.jumbotron .container form {
   margin-top: -2px;
 }
 header.jumbotron .container hr {
+  border-color: rgba(255,255,255,.7);
+  margin-left: 0;
+  margin-right: 0;
   margin-top: -2px;
   max-width: 250px;
 }
-.form-inline .form-group {
+.jumbotron .container .form-group {
   margin: 0 auto;
-  max-width: 192px;
 }
-.form-inline .form-group .form-control {
-  width: 152px;
-  margin: 0 auto;
-  font-size: .8rem;
+.jumbotron .container .form-group .form-control {
+  display: inline-block;
+  font-size: .75rem;
+  max-width: 325px;
+  border-radius: 3px;
   box-shadow: 0 1px 1px rgba(0,0,0,.3);
+  margin-bottom: 5px;
+}
+#search-btn {
+  font-size: .8rem;
+  border-radius: 1px;
+  border-color: #d32323;
+  cursor: default;
+}
+#search-btn:hover {
+  background-color: #d32323;
+}
+.jumbotron .container .form-group span {
+  display: inline-block;
+  position: relative;
+  right: 41px;
+}
+.jumbotron .container .form-group .form-control:focus {
+  box-shadow: 0 2px 2px rgba(0,0,0,.25);
+  border-color: #d32323;
 }
 #search-message {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-top: 10px;
+  color: #fff;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
+  visibility: hidden;
+  margin-top: 5px;
 }
 .caption-full {
   padding: 9px;
@@ -141,11 +181,10 @@ header.jumbotron .container hr {
   text-align: center;
 }
 #map {
-    height: 400px;
-    width: 100%;
+  height: 400px;
+  width: 100%;
 }
 .navbar {
-  border-bottom: 1px solid #e7e7e7;
   background: #d32323;
   color: white;
 }
@@ -168,6 +207,7 @@ header.jumbotron .container hr {
   color: white;
 }
 .form-size {
+  min-height: 100%;
   width: 34.5%;
   margin: 30px auto;
 }
@@ -179,7 +219,7 @@ header.jumbotron .container hr {
 }
 .form-control {
   border: 1px solid #999;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .form-group img {
   min-height: 225px;
@@ -234,6 +274,13 @@ header.jumbotron .container hr {
 }
 .comment {
   font-size: 13.5px;
+}
+.comment-form {
+  min-height: 460px;
+}
+.comment-title {
+  font-size: 1.25rem;
+  color: #868e96;
 }
 /* ///////////////////user show page */
 div.user-history {
@@ -307,10 +354,21 @@ footer .container .text-muted {
   .form-size {
     width: 27%
   }
+  .form-size.comment-form {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 768px){
+  .form-size.comment-form {
+    width: 60%;
+  }
 }
 @media screen and (max-width: 767px){
   .form-size {
     width: 50%
+  }
+  .form-size.comment-form {
+    width: 60%;
   }
   .row.campground .col-6.col-sm-7 .text-center p.small {
     display: none;
@@ -360,6 +418,9 @@ footer .container .text-muted {
   .container {
     margin: 0;
     margin-top: 15px;
+  }
+  .jumbotron .container .form-group .form-control {
+    max-width: 200px;
   }
   /* ///////user show page */
   div.user-card hr {
