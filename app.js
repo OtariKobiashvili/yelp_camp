@@ -26,7 +26,7 @@ require('dotenv').config()
 var dbURI = process.env.DB_URI || 'mongodb://localhost/yelp_camp';
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.dbURI);
+mongoose.connect(dbURI);
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
