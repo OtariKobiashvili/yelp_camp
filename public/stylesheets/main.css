@@ -46,7 +46,7 @@ header.jumbotron .container .small {
   margin-top: 15px;
 }
 .campgrounds-container {
-  min-height: 250px;
+  min-height: 300px;
 }
 .campground-card .img-thumbnail {
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.3);
