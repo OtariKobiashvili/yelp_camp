@@ -79,12 +79,13 @@ middlewareObj.isSafe = function(req, res, next) {
 middlewareObj.checkNudity = function(req, res, next) {
     if(checkURL(req.body.avatar)) {
         sightengine.check(['nudity']).set_url(req.body.avatar).then(function(result) {
-            var nude = result.nudity.raw
-            var safe = result.nudity.safe
-            if(nude < .20 || safe > .50) {
+            console.log(result.nudity)
+            var nudityScore = result.nudity.raw
+            var safeScore = result.nudity.safe
+            if(nudityScore < .20 || safeScore > .50) {
                 next();
             } else {
-                req.flash("error", "No nudity allowed, please try again with an appropiate image." )
+                req.flash("error", "No nudity allowed, please try again with an appropiate image." );
                 res.redirect("back");
             }
         }).catch(err => {

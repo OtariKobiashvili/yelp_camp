@@ -1,20 +1,29 @@
 <% include ../partials/header%>
 
 <div class="row">
-  <div class="col-6 col-sm-5 col-md-4 col-lg-3">
-
+  <div class="col-12 col-sm-5 col-md-4 col-lg-3 user-card">
     <div class="img-thumbnail">
-      <img class="img-fluid" src="<%= user.avatar %>" alt="user avatar">
-      <div class="caption-full">
-        <h5><%= user.username %></h5>
-        <h6><%= user.firstName + " " + user.lastName %></h6>
-        <a class="small" href="mailto:<%= user.email %>"><%= user.email %></a>
-        <p class="text-muted small">Member since: <%= user.createdAt.toDateString().slice(4)%></p>
-        <% if(currentUser && user._id.equals(currentUser.id)){ %>
-          <div>
-            <a href="/users/<%= user._id%>/edit" class="btn btn-sm btn-warning">Edit Profile</a>
+      <div class="row">
+        <div class="col-4 col-sm-12">
+          <img class="img-fluid" src="<%= user.avatar %>" alt="user avatar">
+        </div>
+        <div class="col-8 col-sm-12">
+          <div class="caption-full">
+            <h5><%= user.username %></h5>
+            <h6><%= user.firstName + " " + user.lastName %></h6>
+            <% if(user.email.length > 15) { %>
+            <a class="small" title= "<%= user.email %>" href="mailto:<%= user.email %>"><%= user.email.slice(0,15) %>...</a>
+            <% } else { %>
+            <a class="small" title= "<%= user.email %>" href="mailto:<%= user.email %>"><%= user.email %></a>
+            <% } %>
+            <p class="text-muted small">Member since: <%= user.createdAt.toDateString().slice(4)%></p>
+            <% if(currentUser && user._id.equals(currentUser.id)){ %>
+              <div>
+                <a href="/users/<%= user._id%>/edit" class="btn btn-sm btn-warning">Edit Profile</a>
+              </div>
+            <% } %>
           </div>
-        <% } %>
+        </div>
       </div>
     </div>
     <p class="small">
@@ -22,8 +31,8 @@
     </p>
     <hr>
   </div>
-  <div class="col-12 col-sm-7 col-md-8 col-lg-9">
-    <h6 class="text-center"><%= user.username%>'s Campgrounds</h6>
+  <div class="col-12 col-sm-7 col-md-8 col-lg-9 user-history">
+    <h6 class="text-center"><%= user.username %>'s Campgrounds</h6>
     <hr>
     <% if(campgrounds.length > 0){ %>
       <% campgrounds.forEach(function(campground) { %>
@@ -36,7 +45,7 @@
           <div class="col-6 col-sm-7">
             <div class="text-center">
               <h6><%= campground.name %></h6>
-              <span class="small text-muted"><em><%= moment(campground.created).fromNow() %></em></span>
+              <span class="small text-muted camp-date"><em><%= moment(campground.created).fromNow() %></em></span>
               <p class="small">Location: <%= campground.location %></p>
               <p class="small"><%= campground.description %></p>
               <p>
