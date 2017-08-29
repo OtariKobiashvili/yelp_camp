@@ -49,8 +49,6 @@ middlewareObj.checkProfileOwnership = function(req, res, next){
 //is user logged in
     if(req.isAuthenticated()){
         user.findById(req.params.id, function(err, foundUser){
-            console.log(foundUser)
-            console.log(req.user)
             if(err){
                 res.redirect(".");
                 //does user own found comment?
@@ -79,7 +77,6 @@ middlewareObj.isSafe = function(req, res, next) {
 middlewareObj.checkNudity = function(req, res, next) {
     if(checkURL(req.body.avatar)) {
         sightengine.check(['nudity']).set_url(req.body.avatar).then(function(result) {
-            console.log(result.nudity)
             var nudityScore = result.nudity.raw
             var safeScore = result.nudity.safe
             if(nudityScore < .20 || safeScore > .50) {

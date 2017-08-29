@@ -10,12 +10,12 @@ router.get("/", function(req,res){
     //if theres is a search respond with campgrounds that match the search by name
     if(req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), "gi");
-        console.log(regex)
         //Check to see what search is, if its empty, return all campgrounds
         if(regex == "/all/gi"){
             campground.find({}, function(err, allCampgrounds){
                 if(err){
-                    console.log(err);
+                    req.flash("error", "Something went wrong: " + err.message)
+                    res.redirect("back");
                 } else {
                     return res.json(allCampgrounds);
                 }
@@ -23,7 +23,8 @@ router.get("/", function(req,res){
         } else {
             campground.find({ name: regex }, function(err, allCampgrounds){
                 if(err){
-                    console.log(err);
+                    req.flash("error", "Something went wrong: " + err.message)
+                    res.redirect("back");
                 } else {
                     return res.json(allCampgrounds);
                 }
@@ -117,7 +118,6 @@ router.get("/:id", function(req, res){
                     foundCampground.save();
                 });
             });
-            console.log(foundCampground.comments);
             res.render("campgrounds/show", {campground: foundCampground});
         }
     });

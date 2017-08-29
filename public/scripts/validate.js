@@ -14,7 +14,6 @@ $("#image-search").on("input", function(){
 });
 
 $("#form").on("submit", function(e){
-  console.log(isValid);
   if(!isValid){
     e.preventDefault();
     $(".form-group button + p").html("Please fix all errors before continuing.");

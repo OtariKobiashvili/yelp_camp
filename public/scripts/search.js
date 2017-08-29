@@ -7,7 +7,6 @@ $('#campground-search').on('input', function() {
     $.get('/campgrounds?' + search, function(data) {
       $('#campground-grid').html('');
       $("#search-message").css("visibility", "hidden");
-        console.log(data);
         if(data.length < 1){
           $('#search-message').css("visibility", "visible");
         } else {
