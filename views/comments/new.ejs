@@ -5,7 +5,7 @@
             <div class="form-size comment-form">
                 <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
                     <div class = "form-group">
-                        <textarea class ="form-control" name="comment[text]" rows="7" placeholder="Comment..."></textarea>
+                        <textarea class ="form-control" name="comment[text]" rows="7" required="required""></textarea>
                     </div>
                     <div class = "form-group">
                         <button class= "btn btn-primary btn-block">Submit</button>
