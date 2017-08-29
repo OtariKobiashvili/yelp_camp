@@ -49,7 +49,7 @@ router.get("/new", middleware.isLoggedIn, function(req,res){
 });
 
 //CREATE
-router.post("/", middleware.isLoggedIn, function(req,res){
+router.post("/", middleware.isLoggedIn, middleware.isSafe, function(req,res){
     // get data from form and add to campground array
     var name = req.body.name;
     var price = req.body.price;
@@ -136,7 +136,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req,res){
 
 //update campground
 
-router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
+router.put("/:id", middleware.checkCampgroundOwnership, middleware.isSafe, function(req, res){
   geocoder.geocode(req.body.campground.location, function (err, data) {
     if(data.results.length < 1){
         req.flash("error","Please enter a valid location");
