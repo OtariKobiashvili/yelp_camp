@@ -1,18 +1,15 @@
-
-var campgroundID = window.location.href.slice(34);
-
 $(".starability-grow label").on("click", function() {
   var userRating = $(this).prev()[0].value;
 
   $.ajax({
-    url: "/campgrounds/" + campgroundID + "/ratings",
+    url: window.location.href + "/ratings",
     type: 'POST',
     data: {rating:userRating},
     timeout: 5000,
     success: function(data) {
       $(".starability-grow").fadeOut(600, "linear", function() {
         $.ajax({
-          url: "/campgrounds/" + campgroundID,
+          url: window.location.href,
           cache: false,
           success: function(rating){
             $("#average-rating").text("Average Rating: " + rating + " stars")
