@@ -5,7 +5,7 @@ $(".starability-grow label").on("click", function() {
   var userRating = $(this).prev()[0].value;
 
   $.ajax({
-    url: "/campgrounds/" + campgroundID + "/ratings",
+    url: "https://yelpcamp-otari.herokuapp.com/campgrounds/" + campgroundID + "/ratings",
     type: 'POST',
     data: {rating:userRating},
     timeout: 5000,
