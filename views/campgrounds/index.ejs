@@ -53,7 +53,7 @@
     </nav>
 
     <header class="jumbotron">
-        <div class="container">
+        <div class="container text-center">
             <% if(error && error.length > 0) { %>
                 <div class="container">
                     <div class="alert alert-danger" role="alert">
@@ -68,19 +68,23 @@
                 </div>
             <% } %>
             <h1>Own your journey</h1>
-            <p class="small">View our hand-picked campgrounds from all over the globe.</p>
-            <p>
-                <a class="btn btn-primary btn-md" href="/campgrounds/new">New Campground</a>
-            </p>
+            <p class="small">View our hand-picked destinations from all over the globe.</p>
             <hr>
-            <div class="form-group">
+            <div class="form-group text-center">
                 <input id="campground-search" type="text" name="search" placeholder="Search Campgrounds..." class="form-control">
                 <span><button class="btn btn-primary" id="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button></span>
             </div>
             <span class="small" id="search-message">No campgrounds found. Please try again.</span>
         </div>
     </header>
-
+    <div class="container text-center">
+        <div class="add-new">
+            <h5>Found something interesting?</h5>
+            <p class="small text-muted">We're always looking for new places, share your favorites with us:</p>
+            <a class="btn btn-primary btn-sm" href="/campgrounds/new">Add Campground</a>
+        </div>
+        <hr>
+    </div>
     <div class="container campgrounds-container">
         <div class="row text-center" id="campground-grid">
             <% campgrounds.forEach(function(camp){ %>
