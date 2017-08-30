@@ -4,9 +4,6 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 header.jumbotron {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
   background-image: linear-gradient(to right, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .4) 50%, rgba(0, 0, 0, .1) 100%), url("https://images.unsplash.com/photo-1431664161086-95e609b5768f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=e154941dc512971e304e45cddd804825");
   background-position: center center;
   background-size: cover;
@@ -14,6 +11,10 @@ header.jumbotron {
   border-radius: 1px;
   margin-top: -5px;
   color: #fff;
+  transition: ease-in-out .5s;
+}
+header.jumbotron .container {
+  transition: linear 1s;
 }
 header.jumbotron .container h1 {
   font-size: 41px;
@@ -77,10 +78,8 @@ header.jumbotron .container form {
 }
 header.jumbotron .container hr {
   border-color: rgba(255,255,255,.7);
-  margin-left: 0;
-  margin-right: 0;
   margin-top: -2px;
-  max-width: 250px;
+  max-width: 325px;
 }
 .jumbotron .container .form-group {
   margin: 0 auto;
@@ -88,10 +87,11 @@ header.jumbotron .container hr {
 .jumbotron .container .form-group .form-control {
   display: inline-block;
   font-size: .75rem;
-  max-width: 325px;
+  max-width: 345px;
   border-radius: 3px;
   box-shadow: 0 1px 1px rgba(0,0,0,.3);
   margin-bottom: 5px;
+  margin-left: 10px
 }
 #search-btn {
   font-size: .8rem;
@@ -105,7 +105,7 @@ header.jumbotron .container hr {
 .jumbotron .container .form-group span {
   display: inline-block;
   position: relative;
-  right: 41px;
+  right: 9px;
 }
 .jumbotron .container .form-group .form-control:focus {
   box-shadow: 0 2px 2px rgba(0,0,0,.25);
@@ -116,6 +116,27 @@ header.jumbotron .container hr {
   text-shadow: 2px 4px 3px rgba(0,0,0,0.4);
   visibility: hidden;
   margin-top: 5px;
+}
+.add-new {
+  margin: 0 auto;
+  margin-top: -80px;
+  margin-bottom: 15px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px 30px;
+  max-width: 350px;
+}
+.add-new h5 {
+  margin-bottom: .25rem;
+  font-size: 1.1rem;
+}
+.add-new p {
+  margin-bottom: .25rem;
+  font-size: .75rem;
+}
+.add-new .btn-primary {
+  font-size: .75rem;
 }
 .caption-full {
   padding: 9px;
@@ -400,9 +421,6 @@ footer .container .text-muted {
   header.jumbotron .container h1 {
   font-size: 2.5rem;
   }
-  header.jumbotron .container p .btn-primary {
-    font-size: .8rem;
-  }
   header.jumbotron .container form .form-control {
     font-size: .7rem;
   }
@@ -421,6 +439,9 @@ footer .container .text-muted {
   }
   .jumbotron .container .form-group .form-control {
     max-width: 200px;
+  }
+  .add-new {
+    margin-top: -60px;
   }
   /* ///////user show page */
   div.user-card hr {
